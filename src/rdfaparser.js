@@ -359,7 +359,7 @@ class RDFaProcessor {
           }
           var prefix = att.nodeName.substring(6)
           // TODO: resolve relative?
-          var ref = RDFaProcessor.trim(att.value)
+          var ref = this.trim(att.value)
           prefixes[prefix] = this.options.base ? Uri.join(ref, this.options.base) : ref
         }
       }
@@ -378,7 +378,7 @@ class RDFaProcessor {
         xmlLangAtt = current.getAttributeNodeNS(this.langAttributes[i].namespaceURI, this.langAttributes[i].localName)
       }
       if (xmlLangAtt) {
-        let value = RDFaProcessor.trim(xmlLangAtt.value)
+        let value = this.trim(xmlLangAtt.value)
         if (value.length > 0) {
           language = value
         } else {
